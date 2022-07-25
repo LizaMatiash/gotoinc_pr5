@@ -7,23 +7,21 @@ module InstanceCounter
     base.send :include, InstanceMethods
   end
 
-  # ff
-  module InstanceMethods
-    protected
+  # hhh
+  module ClassMethods
+    attr_accessor :counter
 
-    @@counter = 0
-
-    def register_instance
-      @@counter += 1
-      # puts "Counted: #{@@counter}"
+    def instances
+      puts "Counted instances: #{counter}"
     end
   end
 
-  # hhh
-  module ClassMethods
-    include InstanceMethods
-    def instances
-      puts "Counted instances: #{@@counter}"
+  # ff
+  module InstanceMethods
+    def register_instance
+      self.class.counter ||= 0
+      self.class.counter += 1
+      puts "instances: #{self.class.counter}"
     end
   end
 end
