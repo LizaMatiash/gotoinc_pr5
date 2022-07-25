@@ -2,6 +2,7 @@
 
 # sss
 class Station
+  include InstanceCounter
   attr_reader :train
   attr_accessor :name
 
@@ -11,6 +12,7 @@ class Station
     @name = name
     @train = {}
     @@all << name
+    register_instance
   end
 
   def coming(trn)
@@ -38,7 +40,7 @@ class Station
     train.delete(number)
   end
 
-  def all_stations
-    @@all.map { |station| puts station }
+  def self.all_stations
+    @@all.each { |station| puts station }
   end
 end

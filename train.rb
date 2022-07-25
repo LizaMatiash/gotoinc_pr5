@@ -7,7 +7,7 @@ class Train
   attr_reader :speed, :size, :route, :station, :number
 
   @@all = []
-  @@counter = 0
+
   def initialize(number)
     @number = number
     @size = []
@@ -58,8 +58,8 @@ class Train
     end
   end
 
-  def find(num)
-    puts @@all.include?(num) ? "Train #{num} finded" : nil
+  def self.find(num)
+    puts @@all.include?(num) ? "Train #{num} founded" : nil
   end
 
   protected

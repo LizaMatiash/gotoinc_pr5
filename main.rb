@@ -70,6 +70,10 @@ cargo_train_list = []
 station = nil
 train = nil
 
+tran = Train.new(123)
+tran = Train.new(111)
+Train.find(111)
+
 puts message[:interfase]
 loop do
   fin = false
@@ -149,4 +153,4 @@ end
 # station.all_stations
 # train.company_name('AAA')
 # train.company_get
-Train.instances
+Station.instances
